@@ -1,0 +1,25 @@
+From 6adf34859496dfb514fe0a4fc7961bf4f54185fe Mon Sep 17 00:00:00 2001
+From: "James Z.M. Gao" <gaozhiming@360.cn>
+Date: Fri, 28 Jun 2019 00:59:00 +0800
+Subject: [PATCH 3/4] change groupId to com.github.gzm55.maven
+
+---
+ contrib/thrift-maven-plugin/pom.xml | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/contrib/thrift-maven-plugin/pom.xml b/contrib/thrift-maven-plugin/pom.xml
+index 684678ee..5c51f0cd 100644
+--- a/contrib/thrift-maven-plugin/pom.xml
++++ b/contrib/thrift-maven-plugin/pom.xml
+@@ -23,7 +23,7 @@
+   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+ 
+   <modelVersion>4.0.0</modelVersion>
+-  <groupId>org.apache.thrift</groupId>
++  <groupId>com.github.gzm55.maven</groupId>
+   <artifactId>thrift-maven-plugin</artifactId>
+   <packaging>maven-plugin</packaging>
+   <name>thrift-maven-plugin</name>
+-- 
+2.22.0
+

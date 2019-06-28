@@ -1,0 +1,113 @@
+From 8371462fe3b9a75951964beb247fdea3ce75cde0 Mon Sep 17 00:00:00 2001
+From: "James Z.M. Gao" <gaozhiming@360.cn>
+Date: Fri, 28 Jun 2019 11:00:52 +0800
+Subject: [PATCH 4/4] prepare pom for deploy to central via nexus
+
+---
+ contrib/thrift-maven-plugin/pom.xml | 92 +++++++++++++++++++++++++++++
+ 1 file changed, 92 insertions(+)
+
+diff --git a/contrib/thrift-maven-plugin/pom.xml b/contrib/thrift-maven-plugin/pom.xml
+index 5c51f0cd..0e749563 100644
+--- a/contrib/thrift-maven-plugin/pom.xml
++++ b/contrib/thrift-maven-plugin/pom.xml
+@@ -110,4 +110,96 @@
+     <thrift.test.home>${thrift.root}/test</thrift.test.home>
+     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+   </properties>
++
++  <profiles>
++    <profile>
++      <id>release-profile</id>
++      <activation>
++        <property>
++          <name>performRelease</name>
++          <value>true</value>
++        </property>
++      </activation>
++      <build>
++        <pluginManagement>
++          <plugins>
++            <plugin>
++              <artifactId>maven-install-plugin</artifactId>
++              <version>3.0.0-M1</version>
++            </plugin>
++            <plugin>
++              <artifactId>maven-deploy-plugin</artifactId>
++              <version>3.0.0-M1</version>
++              <configuration>
++                <skip>true</skip>
++              </configuration>
++            </plugin>
++            <plugin>
++              <artifactId>maven-source-plugin</artifactId>
++              <version>3.1.0</version>
++              <configuration>
++                <skipSource>true</skipSource>
++              </configuration>
++            </plugin>
++            <plugin>
++              <artifactId>maven-javadoc-plugin</artifactId>
++              <version>3.1.0</version>
++              <configuration>
++                <skip>true</skip>
++              </configuration>
++            </plugin>
++          </plugins>
++        </pluginManagement>
++        <plugins>
++          <plugin>
++            <groupId>org.sonatype.plugins</groupId>
++            <artifactId>nexus-staging-maven-plugin</artifactId>
++            <version>1.6.8</version>
++            <extensions>true</extensions>
++            <configuration>
++              <serverId>ossrh</serverId>
++              <nexusUrl>https://oss.sonatype.org/</nexusUrl>
++              <autoReleaseAfterClose>true</autoReleaseAfterClose>
++            </configuration>
++          </plugin>
++          <plugin>
++            <artifactId>maven-gpg-plugin</artifactId>
++            <version>1.6</version>
++            <executions>
++              <execution>
++                <id>sign-artifacts</id>
++                <goals>
++                  <goal>sign</goal>
++                </goals>
++              </execution>
++            </executions>
++          </plugin>
++        </plugins>
++      </build>
++    </profile>
++    <profile>
++      <id>gpg-2.1-profile</id>
++      <activation>
++        <property>
++          <name>!env.OLD_GPG</name>
++        </property>
++      </activation>
++      <build>
++        <pluginManagement>
++          <plugins>
++            <plugin>
++              <artifactId>maven-gpg-plugin</artifactId>
++              <version>1.6</version>
++              <configuration>
++                <gpgArguments>
++                  <arg>--pinentry-mode</arg>
++                  <arg>loopback</arg>
++                </gpgArguments>
++              </configuration>
++            </plugin>
++          </plugins>
++        </pluginManagement>
++      </build>
++    </profile>
++  </profiles>
+ </project>
+-- 
+2.22.0
+
