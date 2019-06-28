@@ -24,7 +24,7 @@ before_script:
 - gpg --import KEYS
 - curl --fail -L -O https://archive.apache.org/dist/thrift/$THRIFT_VERSION/thrift-$THRIFT_VERSION.tar.gz
 - curl --fail -L -O https://archive.apache.org/dist/thrift/$THRIFT_VERSION/thrift-$THRIFT_VERSION.tar.gz.asc
-- gpg --homedir gnupg --verify thrift-$THRIFT_VERSION.tar.gz.asc thrift-$THRIFT_VERSION.tar.gz
+- gpg --verify thrift-$THRIFT_VERSION.tar.gz.asc thrift-$THRIFT_VERSION.tar.gz
 - tar xzf thrift-$THRIFT_VERSION.tar.gz
 - rm -rf KEYS thrift-$THRIFT_VERSION.tar.gz.asc thrift-$THRIFT_VERSION.tar.gz
 
