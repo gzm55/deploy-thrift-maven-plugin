@@ -1,0 +1,42 @@
+From 6168c98a69a742a1521ab224919e67cef307887e Mon Sep 17 00:00:00 2001
+From: "James Z.M. Gao" <gaozhiming@360.cn>
+Date: Fri, 28 Jun 2019 22:54:19 +0800
+Subject: [PATCH 5/5] add required message for staging to oss
+
+---
+ contrib/thrift-maven-plugin/pom.xml | 21 +++++++++++++++++++++
+ 1 file changed, 21 insertions(+)
+
+diff --git a/contrib/thrift-maven-plugin/pom.xml b/contrib/thrift-maven-plugin/pom.xml
+index 0e749563..7b8748cb 100644
+--- a/contrib/thrift-maven-plugin/pom.xml
++++ b/contrib/thrift-maven-plugin/pom.xml
+@@ -202,4 +202,25 @@
+       </build>
+     </profile>
+   </profiles>
++
++  <description>Maven Thrift Plugin that executes the thrift code generator.</description>
++  <url>https://github.com/apache/thrift</url>
++  <licenses>
++    <license>
++      <name>Apache License, Version 2.0</name>
++      <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
++    </license>
++  </licenses>
++  <scm>
++    <connection>scm:git:git://github.com/apache/thrift.git</connection>
++    <developerConnection>scm:git:git@github.com:apache/thrift.git</developerConnection>
++    <tag>v0.12.0</tag>
++    <url>https://github.com/apache/thrift/tree/v0.12.0</url>
++  </scm>
++  <developers>
++    <developer>
++      <name>Roger Meier</name>
++      <email>r.meier@siemens.com</email>
++    </developer>
++  </developers>
+ </project>
+-- 
+2.22.0
+

@@ -1,7 +1,7 @@
 From 520e4c35507856c2d9f0dd3c9f8ce92c1f09845c Mon Sep 17 00:00:00 2001
 From: "James Z.M. Gao" <gaozhiming@360.cn>
 Date: Fri, 28 Jun 2019 00:00:56 +0800
-Subject: [PATCH 2/4] use antrun plugin to generate test jar
+Subject: [PATCH 2/5] use antrun plugin to generate test jar
 
 ---
  contrib/thrift-maven-plugin/pom.xml | 36 ++++++-----------------------

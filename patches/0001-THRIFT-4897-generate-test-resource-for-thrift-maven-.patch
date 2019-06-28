@@ -1,7 +1,7 @@
 From 911b37cabfe262b541c3bfed7401691d746c5f80 Mon Sep 17 00:00:00 2001
 From: "James Z.M. Gao" <gaozhiming@360.cn>
 Date: Wed, 26 Jun 2019 15:59:55 +0800
-Subject: [PATCH 1/4] THRIFT-4897 generate test resource for
+Subject: [PATCH 1/5] THRIFT-4897 generate test resource for
  thrift-maven-plugin
 
 generate SharedIdl.jar for passing the test case for thrift-maven-plugin

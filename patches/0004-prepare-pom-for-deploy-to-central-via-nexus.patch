@@ -1,7 +1,7 @@
 From 8371462fe3b9a75951964beb247fdea3ce75cde0 Mon Sep 17 00:00:00 2001
 From: "James Z.M. Gao" <gaozhiming@360.cn>
 Date: Fri, 28 Jun 2019 11:00:52 +0800
-Subject: [PATCH 4/4] prepare pom for deploy to central via nexus
+Subject: [PATCH 4/5] prepare pom for deploy to central via nexus
 
 ---
  contrib/thrift-maven-plugin/pom.xml | 92 +++++++++++++++++++++++++++++
