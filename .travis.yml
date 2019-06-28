@@ -28,8 +28,6 @@ before_script:
 - tar xzf thrift-$THRIFT_VERSION.tar.gz
 - rm -rf KEYS thrift-$THRIFT_VERSION.tar.gz.asc thrift-$THRIFT_VERSION.tar.gz
 
-  mvn -f "thrift-${version}/contrib/thrift-maven-plugin" verify -D thrift.compiler="`pwd`/../thrift-0.12.0-osx-x86_64"
-
 script:
 # apply patches
 - git apply --directory=thrift-$THRIFT_VERSION patches/*.patch
