@@ -10,7 +10,7 @@ env:
 addons:
   apt:
     packages:
-    - thrift
+    - thrift-compiler
 
 cache:
   directories:
