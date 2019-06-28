@@ -20,13 +20,12 @@ install: skip
 
 before_script:
 #- openssl aes-256-cbc -K $encrypted_d3fff69b07aa_key -iv $encrypted_d3fff69b07aa_iv -in .cd/sign.asc.enc -d | gpg --batch --import
-- curl --fail -L -O https://archive.apache.org/dist/thrift/KEYS
-- gpg --import KEYS
+- gpg --recv-keys EDD02683 # James E. King III (CODE SIGNING KEY) <jking@apache.org>
 - curl --fail -L -O https://archive.apache.org/dist/thrift/$THRIFT_VERSION/thrift-$THRIFT_VERSION.tar.gz
 - curl --fail -L -O https://archive.apache.org/dist/thrift/$THRIFT_VERSION/thrift-$THRIFT_VERSION.tar.gz.asc
 - gpg --verify thrift-$THRIFT_VERSION.tar.gz.asc thrift-$THRIFT_VERSION.tar.gz
 - tar xzf thrift-$THRIFT_VERSION.tar.gz
-- rm -rf KEYS thrift-$THRIFT_VERSION.tar.gz.asc thrift-$THRIFT_VERSION.tar.gz
+- rm -rf thrift-$THRIFT_VERSION.tar.gz.asc thrift-$THRIFT_VERSION.tar.gz
 
 script:
 # apply patches
