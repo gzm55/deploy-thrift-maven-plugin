@@ -10,9 +10,7 @@ env:
 addons:
   apt:
     packages:
-    - maven
     - thrift
-#    - git
 
 cache:
   directories:
