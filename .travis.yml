@@ -20,15 +20,15 @@ cache:
 install: skip
 
 before_script:
-- openssl aes-256-cbc -K $encrypted_6284aaecb834_key -iv $encrypted_6284aaecb834_iv -in .cd/sign.asc.enc -d | gpg --batch --import
-- gpg --version
-- gpg --keyserver hkp://pool.sks-keyservers.net --recv-keys "$GPG_KEYID"
-- gpg --keyserver hkp://pool.sks-keyservers.net --recv-keys EDD02683 # James E. King III (CODE SIGNING KEY) <jking@apache.org>
-- gpg --fingerprint EDD02683 | grep -q '9348 F036 9A20 8184 00F8  7140 C6F2 B11B EDD0 2683'
-- gpg --list-keys
+- openssl aes-256-cbc -K $encrypted_6284aaecb834_key -iv $encrypted_6284aaecb834_iv -in .cd/sign.asc.enc -d | gpg2 --batch --import
+- gpg2 --version
+- gpg2 --keyserver hkps://hkps.pool.sks-keyservers.net --recv-keys "$GPG_KEYID"
+- gpg2 --keyserver hkps://hkps.pool.sks-keyservers.net --recv-keys EDD02683 # James E. King III (CODE SIGNING KEY) <jking@apache.org>
+- gpg2 --fingerprint EDD02683 | grep -q '9348 F036 9A20 8184 00F8  7140 C6F2 B11B EDD0 2683'
+- gpg2 --list-keys
 - curl --fail -L -O https://archive.apache.org/dist/thrift/$THRIFT_VERSION/thrift-$THRIFT_VERSION.tar.gz
 - curl --fail -L -O https://archive.apache.org/dist/thrift/$THRIFT_VERSION/thrift-$THRIFT_VERSION.tar.gz.asc
-- gpg --verify thrift-$THRIFT_VERSION.tar.gz.asc thrift-$THRIFT_VERSION.tar.gz
+- gpg2 --verify thrift-$THRIFT_VERSION.tar.gz.asc thrift-$THRIFT_VERSION.tar.gz
 - tar xzf thrift-$THRIFT_VERSION.tar.gz
 - rm -rf thrift-$THRIFT_VERSION.tar.gz.asc thrift-$THRIFT_VERSION.tar.gz
 
@@ -37,5 +37,5 @@ script:
 - mvn -B -gs .cd/settings.xml -f thrift-$THRIFT_VERSION/contrib/thrift-maven-plugin -P release-profile deploy
 
 before_cache:
-- gpg --batch --yes --delete-secret-keys "$GPG_KEYID"
-- gpg --batch --yes --delete-keys "$GPG_KEYID"
+- gpg2 --batch --yes --delete-secret-keys "$GPG_KEYID"
+- gpg2 --batch --yes --delete-keys "$GPG_KEYID"
