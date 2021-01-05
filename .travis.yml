@@ -22,7 +22,7 @@ install: skip
 before_script:
 - openssl aes-256-cbc -K $encrypted_6284aaecb834_key -iv $encrypted_6284aaecb834_iv -in .cd/sign.asc.enc -d | gpg --batch --import
 - gpg --version
-- gpg --recv-keys "$GPG_KEYID"
+- gpg --keyserver hkp://pool.sks-keyservers.net --recv-keys "$GPG_KEYID"
 - gpg --keyserver hkp://pool.sks-keyservers.net --recv-keys EDD02683 # James E. King III (CODE SIGNING KEY) <jking@apache.org>
 - gpg --fingerprint EDD02683 | grep -q '9348 F036 9A20 8184 00F8  7140 C6F2 B11B EDD0 2683'
 - gpg --list-keys
