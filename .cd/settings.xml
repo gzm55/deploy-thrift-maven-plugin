@@ -8,7 +8,7 @@
   </servers>
   <profiles>
     <profile>
-      <id>release-profile</id>
+      <id>release-gpg-profile</id>
       <activation>
         <property>
           <name>performRelease</name>
