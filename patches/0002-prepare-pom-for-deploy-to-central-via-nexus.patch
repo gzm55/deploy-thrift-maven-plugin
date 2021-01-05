@@ -69,7 +69,7 @@ index 5c51f0cd..0e749563 100644
 +          </plugin>
 +          <plugin>
 +            <artifactId>maven-gpg-plugin</artifactId>
-+            <version>1.6</version>
++            <version>3.0.0</version>
 +            <configuration>
 +              <executable>gpg2</executable>
 +            </configuration>
