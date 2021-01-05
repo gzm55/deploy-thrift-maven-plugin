@@ -12,6 +12,7 @@ addons:
   apt:
     packages:
     - thrift-compiler
+    - dirmngr
 
 cache:
   directories:
