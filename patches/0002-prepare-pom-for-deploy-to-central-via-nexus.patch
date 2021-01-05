@@ -11,7 +11,7 @@ diff --git a/contrib/thrift-maven-plugin/pom.xml b/contrib/thrift-maven-plugin/p
 index 5c51f0cd..0e749563 100644
 --- a/contrib/thrift-maven-plugin/pom.xml
 +++ b/contrib/thrift-maven-plugin/pom.xml
-@@ -110,4 +110,96 @@
+@@ -110,4 +110,99 @@
      <thrift.test.home>${thrift.root}/test</thrift.test.home>
      <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
    </properties>
@@ -70,6 +70,9 @@ index 5c51f0cd..0e749563 100644
 +          <plugin>
 +            <artifactId>maven-gpg-plugin</artifactId>
 +            <version>1.6</version>
++            <configuration>
++              <executable>gpg2</executable>
++            </configuration>
 +            <executions>
 +              <execution>
 +                <id>sign-artifacts</id>
