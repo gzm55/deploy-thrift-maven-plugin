@@ -1,7 +1,7 @@
 From 6168c98a69a742a1521ab224919e67cef307887e Mon Sep 17 00:00:00 2001
 From: "James Z.M. Gao" <gaozhiming@360.cn>
 Date: Fri, 28 Jun 2019 22:54:19 +0800
-Subject: [PATCH 5/5] add required message for staging to oss
+Subject: [PATCH 3/3] add required message for staging to oss
 
 ---
  contrib/thrift-maven-plugin/pom.xml | 21 +++++++++++++++++++++
@@ -27,8 +27,8 @@ index 0e749563..7b8748cb 100644
 +  <scm>
 +    <connection>scm:git:git://github.com/apache/thrift.git</connection>
 +    <developerConnection>scm:git:git@github.com:apache/thrift.git</developerConnection>
-+    <tag>v0.12.0</tag>
-+    <url>https://github.com/apache/thrift/tree/v0.12.0</url>
++    <tag>v${env.THRIFT_VERSION}</tag>
++    <url>https://github.com/apache/thrift/tree/v${env.THRIFT_VERSION}</url>
 +  </scm>
 +  <developers>
 +    <developer>
