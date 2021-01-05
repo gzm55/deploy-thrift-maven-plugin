@@ -19,7 +19,6 @@
         <gpg.keyname>${env.GPG_KEYID}</gpg.keyname>
         <gpg.passphrase>${env.GPG_PASSWORD}</gpg.passphrase>
         <gpg.useagent>false</gpg.useagent>
-	<gpg.executable>gpg2</gpg.executable>
       </properties>
     </profile>
   </profiles>

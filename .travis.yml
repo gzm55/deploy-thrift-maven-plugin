@@ -24,8 +24,7 @@ before_script:
 - openssl aes-256-cbc -K $encrypted_6284aaecb834_key -iv $encrypted_6284aaecb834_iv -in .cd/sign.asc.enc -d | gpg2 --batch --import
 - gpg2 --version
 - gpg2 --keyserver hkp://pool.sks-keyservers.net --recv-keys "$GPG_KEYID"
-- gpg2 --keyserver hkp://pool.sks-keyservers.net --recv-keys EDD02683 # James E. King III (CODE SIGNING KEY) <jking@apache.org>
-- gpg2 --fingerprint EDD02683 | grep -q '9348 F036 9A20 8184 00F8  7140 C6F2 B11B EDD0 2683'
+- curl https://downloads.apache.org/thrift/KEYS | gpg2 --import -
 - gpg2 --list-keys
 - curl --fail -L -O https://archive.apache.org/dist/thrift/$THRIFT_VERSION/thrift-$THRIFT_VERSION.tar.gz
 - curl --fail -L -O https://archive.apache.org/dist/thrift/$THRIFT_VERSION/thrift-$THRIFT_VERSION.tar.gz.asc
