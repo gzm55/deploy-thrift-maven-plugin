@@ -34,7 +34,7 @@ before_script:
 
 script:
 - git apply --directory=thrift-$THRIFT_VERSION patches/*.patch
-- mvn -B -gs .cd/settings.xml -f thrift-$THRIFT_VERSION/contrib/thrift-maven-plugin -DperformRelease deploy
+- mvn -B -gs .cd/settings.xml -f thrift-$THRIFT_VERSION/contrib/thrift-maven-plugin -DperformRelease -Dgpg.executable=gpg2 deploy
 
 before_cache:
 - gpg2 --batch --yes --delete-secret-keys "$GPG_KEYID"
