@@ -1,6 +1,6 @@
 language: java
 os: linux
-dist: xenial
+dist: bionic
 
 jdk:
 - openjdk8
@@ -12,7 +12,7 @@ addons:
   apt:
     packages:
     - thrift-compiler
-    - dirmngr
+      #- dirmngr
 
 cache:
   directories:
@@ -36,7 +36,7 @@ script:
 - gpg2 --list-keys
 - which gpg2
 - which gpg
-- mvn -X -B -gs .cd/settings.xml -f thrift-$THRIFT_VERSION/contrib/thrift-maven-plugin -DperformRelease deploy
+- mvn -B -gs .cd/settings.xml -f thrift-$THRIFT_VERSION/contrib/thrift-maven-plugin -DperformRelease deploy
 
 before_cache:
 - gpg2 --batch --yes --delete-secret-keys "$GPG_KEYID"
