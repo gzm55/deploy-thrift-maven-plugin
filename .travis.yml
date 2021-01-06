@@ -12,7 +12,6 @@ addons:
   apt:
     packages:
     - thrift-compiler
-      #- dirmngr
 
 cache:
   directories:
@@ -21,21 +20,19 @@ cache:
 install: skip
 
 before_script:
-- openssl aes-256-cbc -K $encrypted_6284aaecb834_key -iv $encrypted_6284aaecb834_iv -in .cd/sign.asc.enc -d | gpg2 --batch --import
 - gpg2 --version
+- openssl aes-256-cbc -K $encrypted_6284aaecb834_key -iv $encrypted_6284aaecb834_iv -in .cd/sign.asc.enc -d | gpg2 --batch --import
 - gpg2 --keyserver hkp://pool.sks-keyservers.net --recv-keys "$GPG_KEYID"
 - curl https://downloads.apache.org/thrift/KEYS | gpg2 --import -
 - curl --fail -L -O https://archive.apache.org/dist/thrift/$THRIFT_VERSION/thrift-$THRIFT_VERSION.tar.gz
 - curl --fail -L -O https://archive.apache.org/dist/thrift/$THRIFT_VERSION/thrift-$THRIFT_VERSION.tar.gz.asc
+- gpg2 --list-keys
 - gpg2 --verify thrift-$THRIFT_VERSION.tar.gz.asc thrift-$THRIFT_VERSION.tar.gz
 - tar xzf thrift-$THRIFT_VERSION.tar.gz
 - rm -rf thrift-$THRIFT_VERSION.tar.gz.asc thrift-$THRIFT_VERSION.tar.gz
 
 script:
 - git apply --directory=thrift-$THRIFT_VERSION patches/*.patch
-- gpg2 --list-keys
-- which gpg2
-- which gpg
 - mvn -B -gs .cd/settings.xml -f thrift-$THRIFT_VERSION/contrib/thrift-maven-plugin -DperformRelease deploy
 
 before_cache:
