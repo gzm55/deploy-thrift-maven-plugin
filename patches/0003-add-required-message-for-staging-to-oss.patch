@@ -1,6 +1,6 @@
-From 6168c98a69a742a1521ab224919e67cef307887e Mon Sep 17 00:00:00 2001
+From 86bc629523a0fe05377b5de54101b55f19a5d852 Mon Sep 17 00:00:00 2001
 From: "James Z.M. Gao" <gaozhiming@360.cn>
-Date: Fri, 28 Jun 2019 22:54:19 +0800
+Date: Wed, 6 Jan 2021 16:04:47 +0800
 Subject: [PATCH 3/3] add required message for staging to oss
 
 ---
@@ -8,10 +8,10 @@ Subject: [PATCH 3/3] add required message for staging to oss
  1 file changed, 21 insertions(+)
 
 diff --git a/contrib/thrift-maven-plugin/pom.xml b/contrib/thrift-maven-plugin/pom.xml
-index 0e749563..7b8748cb 100644
+index fa9b0c2df..aa12a7993 100644
 --- a/contrib/thrift-maven-plugin/pom.xml
 +++ b/contrib/thrift-maven-plugin/pom.xml
-@@ -202,4 +202,25 @@
+@@ -205,4 +205,25 @@
        </build>
      </profile>
    </profiles>
@@ -38,5 +38,5 @@ index 0e749563..7b8748cb 100644
 +  </developers>
  </project>
 -- 
-2.22.0
+2.30.0
 

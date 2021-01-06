@@ -1,14 +1,14 @@
-From 8371462fe3b9a75951964beb247fdea3ce75cde0 Mon Sep 17 00:00:00 2001
+From a2ccaa0188b91374b08f22f2f938b55e1d325bf8 Mon Sep 17 00:00:00 2001
 From: "James Z.M. Gao" <gaozhiming@360.cn>
-Date: Fri, 28 Jun 2019 11:00:52 +0800
+Date: Wed, 6 Jan 2021 16:04:12 +0800
 Subject: [PATCH 2/3] prepare pom for deploy to central via nexus
 
 ---
- contrib/thrift-maven-plugin/pom.xml | 92 +++++++++++++++++++++++++++++
- 1 file changed, 92 insertions(+)
+ contrib/thrift-maven-plugin/pom.xml | 95 +++++++++++++++++++++++++++++
+ 1 file changed, 95 insertions(+)
 
 diff --git a/contrib/thrift-maven-plugin/pom.xml b/contrib/thrift-maven-plugin/pom.xml
-index 5c51f0cd..0e749563 100644
+index 998732cd4..fa9b0c2df 100644
 --- a/contrib/thrift-maven-plugin/pom.xml
 +++ b/contrib/thrift-maven-plugin/pom.xml
 @@ -110,4 +110,99 @@
@@ -112,5 +112,5 @@ index 5c51f0cd..0e749563 100644
 +  </profiles>
  </project>
 -- 
-2.22.0
+2.30.0
 
